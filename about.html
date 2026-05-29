@@ -255,10 +255,14 @@
       .cap-row { grid-template-columns: 50px 1fr 40px; }
       .cap-desc { display: none; }
       .marquee-track { gap: 40px; padding-right: 40px; }
+      .marquee-item { font-size: clamp(18px, 2.5vw, 24px); }
     }
     @media (max-width: 768px) {
       .cap-row { grid-template-columns: 40px 1fr 32px; gap: 16px; }
       .services-marquee { padding: 18px 0; }
+      .marquee-track { gap: 24px; padding-right: 24px; }
+      .marquee-item { font-size: clamp(16px, 3vw, 20px); }
+      .marquee-item i { font-size: 16px; }
     }
   </style>
 </head>
