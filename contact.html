@@ -248,7 +248,11 @@
             <div class="info-icon"><i class="fas fa-phone"></i></div>
             <div>
               <div class="info-label">Phone</div>
+<<<<<<< HEAD
               <div class="info-value"><a href="tel:+919342732906">+91 9342732906</a></div>
+=======
+              <div class="info-value"><a href="tel:9342732906">+91 9342732906</a></div>
+>>>>>>> 57be24aab29a9a8c9b028bcf28dbf34946d19320
             </div>
           </div>
           <div class="info-item">
@@ -348,8 +352,13 @@
     <div class="footer-right">
       <div class="footer-socials">
         <a href="https://linkedin.com/company/veyom" class="footer-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+<<<<<<< HEAD
         <a href="https://wa.me/919342732906" class="footer-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+919342732906" class="footer-icon" aria-label="Phone"><i class="fas fa-phone"></i></a>
+=======
+        <a href="https://wa.me/93427329906" class="footer-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:9342732906" class="footer-icon" aria-label="Phone"><i class="fas fa-phone"></i></a>
+>>>>>>> 57be24aab29a9a8c9b028bcf28dbf34946d19320
         <a href="https://instagram.com/veyom" class="footer-icon" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
         <a href="mailto:veyomdigitalsolutions@gmail.com" class="footer-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
@@ -357,10 +366,41 @@
   </div>
 </footer>
 
+<<<<<<< HEAD
 <!-- FLOAT CALL -->
 <a href="tel:+919342732906" class="float-call" aria-label="Call"><i class="fas fa-phone"></i></a>
 
 <script>
+=======
+<script>
+  /* 🛑 CONSOLE ANNIHILATION & ANTI-INSPECT ENGINE */
+  (function() {
+    // Repeatedly clears the console screen to blind malicious log inspectors
+    setInterval(() => { console.clear(); }, 200);
+
+    // Redefine standard monitoring logs to completely intercept data collection
+    const emptyFunc = () => { return null; };
+    ['log', 'info', 'warn', 'error', 'dir', 'clear', 'table'].forEach(method => {
+      console[method] = emptyFunc;
+    });
+
+    // Block traditional Right Click Context Menus
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Block critical Developer Tool shortcuts (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+    document.addEventListener('keydown', e => {
+      if (
+        e.keyCode === 123 || 
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || 
+        (e.ctrlKey && e.keyCode === 85)
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  })();
+
+>>>>>>> 57be24aab29a9a8c9b028bcf28dbf34946d19320
   /* ── STANDARD INTERFACE ROUTINES ── */
   const nav = document.getElementById('siteNav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
