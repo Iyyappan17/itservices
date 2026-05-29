@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Veyom Digital Solutions</title>
+  <meta name="description" content="Comprehensive digital services — web development, AI automation, branding, SEO, and IoT systems from Veyom Digital Solutions.">
+  <link rel="stylesheet" href="_nav.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── DARK HERO ── */
+    .svc-hero {
+      position: relative; min-height: 60vh;
+      background: var(--dark);
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .svc-hero-grid {
+      position: absolute; inset: 0; z-index: 1;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .svc-hero-content {
+      position: relative; z-index: 2;
+      padding: calc(var(--nav-h) + 80px) 0 80px;
+      max-width: 720px;
+    }
+    .svc-hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300; line-height: 1.1;
+      color: #fff; margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .svc-hero-sub {
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7; max-width: 540px;
+      margin-bottom: 36px;
+    }
+    .svc-hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-sep { height: 3px; background: var(--purple); }
+
+    /* ── ACCORDION ── */
+    .accordion-sec { background: var(--white); padding: 100px 0; }
+    .acc-header { margin-bottom: 56px; }
+    .acc-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600; color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .accordion { border-top: 1px solid var(--border); }
+    .acc-item {
+      border-bottom: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      transition: border-left-color 0.25s ease;
+    }
+    .acc-item.open { border-left-color: var(--purple); }
+    .acc-trigger {
+      width: 100%; background: none; border: none;
+      display: grid; grid-template-columns: 56px 1fr 40px;
+      gap: 24px; align-items: center;
+      padding: 28px 0 28px 16px;
+      cursor: pointer; text-align: left;
+      transition: background 0.2s;
+    }
+    .acc-trigger:hover { background: var(--off); }
+    .acc-item.open .acc-trigger { background: var(--off); }
+    .acc-num {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px; font-weight: 600;
+      color: var(--muted2); letter-spacing: 0.08em;
+    }
+    .acc-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; font-weight: 600;
+      color: var(--ink);
+    }
+    .acc-icon {
+      width: 32px; height: 32px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--purple);
+      transition: transform 0.3s ease, background 0.2s;
+      flex-shrink: 0;
+    }
+    .acc-item.open .acc-icon { transform: rotate(45deg); background: var(--purple); color: #fff; border-color: var(--purple); }
+    .acc-body {
+      display: none;
+      padding: 0 0 32px 72px;
+    }
+    .acc-item.open .acc-body { display: block; }
+    .acc-desc {
+      font-size: 15px; color: var(--muted);
+      line-height: 1.75; margin-bottom: 20px;
+      max-width: 680px;
+    }
+    .acc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .acc-tag {
+      font-size: 12px; font-weight: 500;
+      color: var(--ink); letter-spacing: 0.02em;
+      border: 1px solid var(--border2);
+      padding: 5px 12px;
+    }
+
+    /* ── PROCESS ── */
+    .process-sec { background: var(--dark); padding: 100px 0; }
+    .proc-header { margin-bottom: 64px; }
+    .proc-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600; color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .proc-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; position: relative;
+    }
+    .proc-steps::before {
+      content: '';
+      position: absolute; top: 28px; left: 10%; right: 10%;
+      height: 1px; background: rgba(255,255,255,0.1);
+      z-index: 0;
+    }
+    .proc-step { padding: 0 24px; position: relative; z-index: 1; }
+    .proc-num {
+      width: 56px; height: 56px;
+      border: 2px solid var(--purple);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px; font-weight: 700;
+      color: var(--purple); margin-bottom: 24px;
+      background: var(--dark);
+    }
+    .proc-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px; font-weight: 600;
+      color: #fff; margin-bottom: 10px;
+    }
+    .proc-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+    /* ── CTA PURPLE ── */
+    .cta-purple { background: var(--purple); padding: 80px 0; }
+    .cta-purple-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cta-purple h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 600; color: #fff;
+      letter-spacing: -0.02em; max-width: 560px;
+    }
+    .cta-purple p { font-size: 16px; color: rgba(255,255,255,0.7); margin-top: 10px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .proc-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+      .proc-steps::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      .proc-steps { grid-template-columns: 1fr; }
+      .acc-trigger { grid-template-columns: 40px 1fr 32px; gap: 16px; }
+      .acc-body { padding-left: 56px; }
+      .cta-purple-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <span class="drawer-logo">Veyom</span>
+    <button class="drawer-close" id="drawerClose" aria-label="Close"><i class="fas fa-times"></i></button>
+  </div>
+  <nav class="drawer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="careers.html">Careers</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="drawer-cta"><a href="contact.html">Get in Touch</a></div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav" id="siteNav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo1.png" alt="Veyom" class="nav-logo-img">
+      <div>
+        <span class="nav-logo-name">Veyom</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="svc-hero">
+  <div class="svc-hero-grid"></div>
+  <div class="container">
+    <div class="svc-hero-content">
+      <span class="eyebrow" style="color:rgba(255,255,255,0.5);">Our Services</span>
+      <h1>Comprehensive Digital Services for Modern Business.</h1>
+      <p class="svc-hero-sub">From a sharp marketing website to a full AI-powered automation stack — we build the digital infrastructure that lets your business operate at its best.</p>
+      <div class="svc-hero-btns">
+        <a href="#accordion" class="btn btn-ghost">Explore Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="hero-sep"></div>
+
+<!-- ACCORDION -->
+<section class="accordion-sec" id="accordion">
+  <div class="container">
+    <div class="acc-header">
+      <span class="eyebrow">What We Build</span>
+      <h2>Our service areas</h2>
+    </div>
+    <div class="accordion" id="accordion">
+
+      <div class="acc-item open">
+        <button class="acc-trigger" aria-expanded="true">
+          <span class="acc-num">01</span>
+          <span class="acc-title">Web Development</span>
+          <span class="acc-icon"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="acc-body">
+          <p class="acc-desc">We build fast, conversion-focused websites and web platforms on modern stacks. Whether you need a sharp marketing site, a full e-commerce store, or a custom SaaS platform, we engineer it to perform.</p>
+          <div class="acc-tags">
+            <span class="acc-tag">Business Websites</span>
+            <span class="acc-tag">Landing Pages</span>
+            <span class="acc-tag">E-commerce</span>
+            <span class="acc-tag">SaaS Platforms</span>
+            <span class="acc-tag">Custom CRM/ERP</span>
+            <span class="acc-tag">Progressive Web Apps</span>
+            <span class="acc-tag">API Integrations</span>
+            <span class="acc-tag">Payment Systems</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-num">02</span>
+          <span class="acc-title">AI &amp; Automation</span>
+          <span class="acc-icon"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="acc-body">
+          <p class="acc-desc">We design and deploy intelligent automation systems that eliminate repetitive work, reduce errors, and free your team to focus on what matters. From WhatsApp bots to full AI voice agents.</p>
+          <div class="acc-tags">
+            <span class="acc-tag">WhatsApp Automation</span>
+            <span class="acc-tag">AI Chatbots</span>
+            <span class="acc-tag">Email Automation</span>
+            <span class="acc-tag">AI Voice Agents</span>
+            <span class="acc-tag">Workflow Automation</span>
+            <span class="acc-tag">Document Processing</span>
+            <span class="acc-tag">Data Extraction</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-num">03</span>
+          <span class="acc-title">Branding &amp; Design</span>
+          <span class="acc-icon"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="acc-body">
+          <p class="acc-desc">Your brand is the first thing people judge you on. We create visual identities that are sharp, memorable, and built to scale — from logo to full brand system to UI/UX design.</p>
+          <div class="acc-tags">
+            <span class="acc-tag">Logo Design</span>
+            <span class="acc-tag">Brand Identity</span>
+            <span class="acc-tag">UI/UX Design</span>
+            <span class="acc-tag">Social Media Graphics</span>
+            <span class="acc-tag">Pitch Decks</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-num">04</span>
+          <span class="acc-title">SEO &amp; Digital Growth</span>
+          <span class="acc-icon"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="acc-body">
+          <p class="acc-desc">Visibility drives growth. We implement technical and on-page SEO strategies that improve your search rankings, set up analytics that give you real insight, and optimise your site for conversion.</p>
+          <div class="acc-tags">
+            <span class="acc-tag">Technical SEO</span>
+            <span class="acc-tag">On-page Optimisation</span>
+            <span class="acc-tag">Analytics Setup</span>
+            <span class="acc-tag">Conversion Optimisation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-num">05</span>
+          <span class="acc-title">IoT &amp; Smart Systems</span>
+          <span class="acc-icon"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="acc-body">
+          <p class="acc-desc">We architect and deploy IoT systems that connect physical devices to intelligent software — from industrial monitoring to smart building automation and real-time operational dashboards.</p>
+          <div class="acc-tags">
+            <span class="acc-tag">IoT Architecture</span>
+            <span class="acc-tag">Device Integration</span>
+            <span class="acc-tag">Industrial Monitoring</span>
+            <span class="acc-tag">Sensor Automation</span>
+            <span class="acc-tag">Real-time Dashboards</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-sec">
+  <div class="container">
+    <div class="proc-header">
+      <span class="eyebrow" style="color:rgba(255,255,255,0.45);">How We Work</span>
+      <h2>From brief to launch</h2>
+    </div>
+    <div class="proc-steps">
+      <div class="proc-step">
+        <div class="proc-num">01</div>
+        <div class="proc-title">Discovery</div>
+        <p class="proc-desc">We start by understanding your business, your users, and your goals. No assumptions — just clear questions and honest answers.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">02</div>
+        <div class="proc-title">Strategy &amp; Design</div>
+        <p class="proc-desc">We map out the solution architecture and design the user experience before writing a single line of code.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">03</div>
+        <div class="proc-title">Build &amp; Iterate</div>
+        <p class="proc-desc">We build in focused sprints with regular check-ins. You see progress early and often — no black-box development.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">04</div>
+        <div class="proc-title">Launch &amp; Support</div>
+        <p class="proc-desc">We handle deployment, testing, and handover. Post-launch, we're available for support, iterations, and growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA PURPLE -->
+<section class="cta-purple">
+  <div class="container">
+    <div class="cta-purple-inner">
+      <div>
+        <h2>Let's build something great together.</h2>
+        <p>Tell us about your project and we'll respond within 24 hours.</p>
+      </div>
+      <a href="contact.html" class="btn btn-white">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo-link">
+        <img src="logo1.png" alt="Veyom">
+        <span class="footer-logo-name">Veyom Digital Solutions</span>
+      </a>
+      <p class="footer-copy">© 2026 Veyom Digital Solutions. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <div class="footer-socials">
+        <a href="https://linkedin.com/company/veyom" class="footer-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919342732906" class="footer-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+919342732906" class="footer-icon" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        <a href="https://instagram.com/veyom" class="footer-icon" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:info@veyom.com" class="footer-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT CALL -->
+<a href="tel:9342732906" class="float-call" aria-label="Call"><i class="fas fa-phone"></i></a>
+
+<script>
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+  const ov = document.getElementById('drawerOverlay');
+  const dr = document.getElementById('drawer');
+  const tog = s => { dr.classList.toggle('open', s); ov.classList.toggle('open', s); document.body.style.overflow = s ? 'hidden' : ''; };
+  document.getElementById('navHamburger').addEventListener('click', () => tog(true));
+  document.getElementById('drawerClose').addEventListener('click', () => tog(false));
+  ov.addEventListener('click', () => tog(false));
+  document.querySelectorAll('.drawer-links a').forEach(a => a.addEventListener('click', () => tog(false)));
+
+  // Accordion
+  document.querySelectorAll('.acc-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.acc-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

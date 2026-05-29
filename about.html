@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Veyom Digital Solutions</title>
+  <meta name="description" content="Learn about Veyom Digital Solutions — a focused digital engineering team building websites, applications, and AI systems.">
+  <link rel="stylesheet" href="_nav.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── PAGE HERO (THEME BLACK WITH ADJUSTED BACKGROUND POSITION) ── */
+    .page-hero {
+      position: relative;
+      background: #0b0b0f; /* Pure deep tech black base */
+      padding-top: calc(var(--nav-h) + 120px);
+      padding-bottom: 140px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute;
+      /* Shifted down and clipped slightly to protect typography readability */
+      top: 15%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+    }
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center center;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 1.5s ease-in-out, transform 4.5s ease-out;
+    }
+    .hero-slide.active {
+      opacity: 0.22; /* Subdued composition to blend behind text */
+      transform: scale(1);
+    }
+    /* Linear atmospheric gradient block */
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #0b0b0f 0%, rgba(11,11,15,0.4) 40%, #0b0b0f 100%);
+      z-index: 1;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 10;
+    }
+    .page-hero .eyebrow {
+      color: var(--purple);
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .page-hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 300; line-height: 1.1;
+      color: #ffffff; margin-bottom: 24px;
+      letter-spacing: -0.02em; max-width: 750px;
+    }
+    .page-hero-sub {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: rgba(255, 255, 255, 0.65); line-height: 1.7;
+      max-width: 580px; margin-bottom: 32px;
+    }
+    .hero-underline {
+      width: 60px; height: 3px;
+      background: var(--purple);
+    }
+
+    /* ── STORY ── */
+    .story-sec { background: var(--off); padding: 100px 0; }
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+    .story-left { position: relative; }
+    .story-bg-num {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(80px, 12vw, 160px);
+      font-weight: 800; color: rgba(0,0,0,0.04);
+      line-height: 1; position: absolute;
+      top: -20px; left: -10px; z-index: 0;
+      user-select: none; pointer-events: none;
+    }
+    .story-heading {
+      position: relative; z-index: 1;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.3; letter-spacing: -0.02em;
+      font-style: italic;
+      padding-top: 60px;
+    }
+    .story-right p {
+      font-size: 16px; color: var(--muted);
+      line-height: 1.8; margin-bottom: 24px;
+    }
+    .story-right p:last-child { margin-bottom: 0; }
+
+    /* ── CLEAN MOVING MARQUEE (NO BACKGROUND) ── */
+    .services-marquee {
+      position: relative;
+      background: transparent; /* Completely stripped backdrop styles */
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 24px 0; /* Tight, compact vertical sizing */
+      display: flex;
+      align-items: center;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      animation: loopMarquee 28s linear infinite;
+      gap: 80px;
+      padding-right: 80px;
+    }
+    
+    .marquee-item {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      color: rgba(11, 11, 15, 0.4); /* Adapts to light layout backgrounds naturally */
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+    
+    /* Elegant hover pop state directly over the blank canvas layout */
+    .marquee-item:hover {
+      color: #0b0b0f;
+      transform: translateY(-1px);
+    }
+    
+    .marquee-item i {
+      color: var(--purple);
+      font-size: clamp(14px, 1.8vw, 20px);
+      transition: transform 0.3s ease;
+    }
+    
+    .marquee-item:hover i {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    @keyframes loopMarquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── CAPABILITIES ── */
+    .caps-sec { background: var(--white); padding: 100px 0; }
+    .caps-header { margin-bottom: 48px; }
+    .caps-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600; color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .caps-list { border-top: 1px solid var(--border); }
+    .cap-row {
+      display: grid;
+      grid-template-columns: 60px 1fr 2fr 40px;
+      gap: 32px; align-items: center;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      padding-left: 16px;
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+    .cap-row:hover {
+      border-left-color: var(--purple);
+      background: var(--off);
+      padding-left: 24px;
+    }
+    .cap-num {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px; font-weight: 600;
+      color: var(--muted2); letter-spacing: 0.08em;
+    }
+    .cap-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px; font-weight: 600;
+      color: var(--ink);
+    }
+    .cap-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .cap-arrow { color: var(--purple); font-size: 16px; text-align: right; }
+
+    /* ── VALUES ── */
+    .values-sec { background: var(--dark); padding: 100px 0; }
+    .values-header { margin-bottom: 56px; }
+    .values-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600; color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .val-card {
+      background: var(--dark2);
+      padding: 40px 32px;
+      border-top: 3px solid var(--purple);
+    }
+    .val-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; font-weight: 600;
+      color: #fff; margin-bottom: 14px;
+    }
+    .val-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    /* ── QUOTE BANNER ── */
+    .quote-banner {
+      background: var(--purple);
+      padding: 80px 0;
+    }
+    .quote-inner { max-width: 800px; }
+    .quote-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 500; color: #fff;
+      line-height: 1.4; font-style: italic;
+      margin-bottom: 24px;
+    }
+    .quote-attr {
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .story-grid { grid-template-columns: 1fr; gap: 48px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .cap-row { grid-template-columns: 50px 1fr 40px; }
+      .cap-desc { display: none; }
+      .marquee-track { gap: 40px; padding-right: 40px; }
+    }
+    @media (max-width: 768px) {
+      .cap-row { grid-template-columns: 40px 1fr 32px; gap: 16px; }
+      .services-marquee { padding: 18px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <span class="drawer-logo">Veyom</span>
+    <button class="drawer-close" id="drawerClose" aria-label="Close"><i class="fas fa-times"></i></button>
+  </div>
+  <nav class="drawer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="services.html">Services</a>
+    <a href="careers.html">Careers</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="drawer-cta"><a href="contact.html">Get in Touch</a></div>
+</div>
+
+<nav class="site-nav scrolled" id="siteNav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo1.png" alt="Veyom" class="nav-logo-img">
+      <div>
+        <span class="nav-logo-name">Veyom</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <div class="hero-slides" id="aboutHeroSlides">
+      <div class="hero-slide active" style="background-image: url('person-working-html-computer.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('digital-blue-hud-interface-global-concept.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('4K%20Earth%20Wallpapers%20on%20WallpaperDog.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('robot%20ai.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('2151964669.jpg');"></div>
+    </div>
+  </div>
+  <div class="container page-hero-content">
+    <span class="eyebrow">About Veyom</span>
+    <h1>We are Veyom Digital Solutions.</h1>
+    <p class="page-hero-sub">A focused digital engineering team building websites, applications, and AI systems for businesses that want to grow.</p>
+    <div class="hero-underline"></div>
+  </div>
+</section>
+
+<section class="story-sec">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-left">
+        <div class="story-bg-num">01</div>
+        <p class="story-heading">"Built on the belief that technology should work for you, not the other way around."</p>
+      </div>
+      <div class="story-right">
+        <p>Veyom Digital Solutions was founded with a simple conviction: most businesses are underserved by the technology they use. Either it's too complex, too expensive, or built by people who don't understand the actual problem. We set out to change that.</p>
+        <p>We are a lean, senior team of engineers, designers, and strategists. We don't have layers of account managers or junior developers learning on your project. When you work with Veyom, you work directly with the people building your product.</p>
+        <p>Our clients range from early-stage startups to established enterprises across real estate, healthcare, logistics, and hospitality. What they share is a desire to use technology as a genuine competitive advantage — and the clarity to know they need a partner who can deliver it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS WE SERVE MOVING RIBBON (CLEAN BACKDROPLESS EDITION) -->
+<div class="services-marquee">
+  <div class="marquee-track">
+    <div class="marquee-item"><i class="fas fa-building"></i> Real Estate</div>
+    <div class="marquee-item"><i class="fas fa-heart-pulse"></i> Healthcare</div>
+    <div class="marquee-item"><i class="fas fa-truck"></i> Logistics</div>
+    <div class="marquee-item"><i class="fas fa-concierge-bell"></i> Hospitality</div>
+    <div class="marquee-item"><i class="fas fa-graduation-cap"></i> Education</div>
+    
+    <!-- Duplicated track items to handle continuous infinite loop mechanics -->
+    <div class="marquee-item"><i class="fas fa-building"></i> Real Estate</div>
+    <div class="marquee-item"><i class="fas fa-heart-pulse"></i> Healthcare</div>
+    <div class="marquee-item"><i class="fas fa-truck"></i> Logistics</div>
+    <div class="marquee-item"><i class="fas fa-concierge-bell"></i> Hospitality</div>
+    <div class="marquee-item"><i class="fas fa-graduation-cap"></i> Education</div>
+  </div>
+</div>
+
+<section class="caps-sec">
+  <div class="container">
+    <div class="caps-header">
+      <span class="eyebrow">What We Do</span>
+      <h2>End-to-end digital capabilities</h2>
+    </div>
+    <div class="caps-list">
+      <div class="cap-row">
+        <div class="cap-num">01</div>
+        <div class="cap-title">Web Development</div>
+        <div class="cap-desc">Business websites, landing pages, e-commerce platforms, and progressive web apps built for performance and conversion.</div>
+        <div class="cap-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-num">02</div>
+        <div class="cap-title">AI &amp; Automation</div>
+        <div class="cap-desc">WhatsApp bots, AI chatbots, voice agents, workflow automation, and document processing that eliminate manual work.</div>
+        <div class="cap-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-num">03</div>
+        <div class="cap-title">Branding &amp; Design</div>
+        <div class="cap-desc">Logo design, brand identity systems, UI/UX design, and visual assets that give your business a premium presence.</div>
+        <div class="cap-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-num">04</div>
+        <div class="cap-title">SEO &amp; Growth</div>
+        <div class="cap-desc">Technical SEO, on-page optimisation, analytics setup, and conversion rate optimisation to drive sustainable growth.</div>
+        <div class="cap-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-sec">
+  <div class="container">
+    <div class="values-header">
+      <span class="eyebrow" style="color:rgba(255,255,255,0.45);">Our Values</span>
+      <h2>What guides everything we do</h2>
+    </div>
+    <div class="values-grid">
+      <div class="val-card">
+        <div class="val-title">Precision</div>
+        <p class="val-desc">We sweat the details. Clean code, pixel-perfect design, and systems that behave exactly as intended — every time.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-title">Transparency</div>
+        <p class="val-desc">No hidden costs, no vague timelines, no surprises. You always know where your project stands and why decisions are made.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-title">Long-term Thinking</div>
+        <p class="val-desc">We build for the next three years, not just the next sprint. Scalable architecture and maintainable code are non-negotiable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-banner">
+  <div class="container">
+    <div class="quote-inner">
+      <p class="quote-text">"The best technology is invisible. It just works — and it makes the people using it more capable."</p>
+      <div class="quote-attr">— Veyom Digital Solutions</div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo-link">
+        <img src="logo5.png" alt="Veyom">
+        <span class="footer-logo-name">Veyom Digital Solutions</span>
+      </a>
+      <p class="footer-copy">© 2026 Veyom Digital Solutions. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <div class="footer-socials">
+        <a href="https://linkedin.com/company/veyom" class="footer-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919342732906" class="footer-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+919342732906" class="footer-icon" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        <a href="https://instagram.com/veyom" class="footer-icon" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:veyomdigitalsolutions@gmail.com" class="footer-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+  const ov = document.getElementById('drawerOverlay');
+  const dr = document.getElementById('drawer');
+  const tog = s => { dr.classList.toggle('open', s); ov.classList.toggle('open', s); document.body.style.overflow = s ? 'hidden' : ''; };
+  document.getElementById('navHamburger').addEventListener('click', () => tog(true));
+  document.getElementById('drawerClose').addEventListener('click', () => tog(false));
+  ov.addEventListener('click', () => tog(false));
+  document.querySelectorAll('.drawer-links a').forEach(a => a.addEventListener('click', () => tog(false)));
+  
+  // Slide Carousel Motion Engine 
+  const slides = document.querySelectorAll('#aboutHeroSlides .hero-slide');
+  let currentSlide = 0;
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 4500);
+</script>
+</body>
+</html>
