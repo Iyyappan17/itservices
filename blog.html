@@ -97,9 +97,17 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .blog-hero { padding-top: calc(var(--nav-h) + 48px); padding-bottom: 48px; }
+      .blog-grid-sec { padding: 56px 0 72px; }
+      .blog-cta { padding: 48px 0; }
+    }
     @media (max-width: 640px) {
       .blog-grid { grid-template-columns: 1fr; }
       .blog-cta-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .blog-hero h1 { font-size: clamp(28px, 8vw, 44px); }
     }
   </style>
 </head>

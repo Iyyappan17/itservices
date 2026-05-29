@@ -145,14 +145,23 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .car-hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .car-hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .culture-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
+      .car-hero { padding-top: calc(var(--nav-h) + 48px); padding-bottom: 56px; }
+      .culture-sec { padding: 60px 0; }
+      .how-sec { padding: 60px 0; }
+      .roles-sec { padding: 60px 0; }
       .how-grid { grid-template-columns: 1fr; }
+      .empty-card { padding: 40px 24px; }
       .notify-form { flex-direction: column; }
       .notify-input { border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
-      .notify-btn { width: 100%; }
+      .notify-btn { width: 100%; padding: 14px; }
+      .car-hero-right { display: none; }
+    }
+    @media (max-width: 480px) {
+      .car-hero h1 { font-size: clamp(26px, 8vw, 40px); }
     }
   </style>
 </head>

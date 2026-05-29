@@ -158,19 +158,30 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .story-grid { grid-template-columns: 1fr; gap: 48px; }
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
       .values-grid { grid-template-columns: 1fr; }
       .cap-row { grid-template-columns: 50px 1fr 40px; }
       .cap-desc { display: none; }
       .marquee-track { gap: 40px; padding-right: 40px; }
     }
     @media (max-width: 768px) {
-      .page-hero { padding-top: calc(var(--nav-h) + 60px); padding-bottom: 80px; }
-      .cap-row { grid-template-columns: 40px 1fr 32px; gap: 16px; }
-      .services-marquee { padding: 18px 0; }
+      .page-hero { padding-top: calc(var(--nav-h) + 48px); padding-bottom: 64px; }
+      .story-sec { padding: 60px 0; }
+      .caps-sec { padding: 60px 0; }
+      .values-sec { padding: 60px 0; }
+      .quote-banner { padding: 56px 0; }
+      .cap-row { grid-template-columns: 40px 1fr 32px; gap: 12px; padding-left: 12px; }
+      .cap-row:hover { padding-left: 16px; }
+      .cap-title { font-size: 16px; }
+      .services-marquee { padding: 16px 0; }
       .marquee-track { gap: 24px; padding-right: 24px; }
-      .marquee-item { font-size: clamp(16px, 3vw, 20px); }
-      .marquee-item i { font-size: 16px; }
+      .marquee-item { font-size: clamp(15px, 3vw, 20px); gap: 10px; }
+      .marquee-item i { font-size: 15px; }
+      .story-heading { padding-top: 40px; font-size: clamp(18px, 4vw, 28px); }
+    }
+    @media (max-width: 480px) {
+      .page-hero h1 { font-size: clamp(28px, 8vw, 44px); }
+      .values-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>

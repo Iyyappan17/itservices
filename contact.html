@@ -123,18 +123,24 @@
     .form-feedback.err { display: block; background: rgba(239,68,68,0.08); border-color: #ef4444; color: #991b1b; }
 
     @media (max-width: 1024px) {
-      .contact-hero { padding-top: calc(var(--nav-h) + 60px); padding-bottom: 48px; }
+      .contact-hero { padding-top: calc(var(--nav-h) + 48px); padding-bottom: 40px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .contact-form-card { padding: 32px; }
-      .form-row { grid-template-columns: 1fr; }
-      .contact-socials { flex-wrap: wrap; gap: 10px; }
+      .contact-form-card { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .contact-socials { flex-wrap: wrap; gap: 8px; }
     }
     @media (max-width: 768px) {
-      .contact-hero { padding-top: calc(var(--nav-h) + 48px); padding-bottom: 40px; }
-      .contact-hero h1 { font-size: clamp(30px, 6vw, 48px); }
+      .contact-hero { padding-top: calc(var(--nav-h) + 40px); padding-bottom: 32px; }
+      .contact-hero h1 { font-size: clamp(28px, 7vw, 48px); }
       .contact-hero-sub { max-width: 100%; }
-      .contact-form-card { padding: 28px 20px; }
-      .form-input, .form-textarea { padding: 14px; }
+      .contact-sec { padding: 48px 0 64px; }
+      .contact-form-card { padding: 24px 16px; }
+      .form-input, .form-textarea { padding: 14px 12px; font-size: 16px; }
+      .chips { gap: 6px; }
+      .chip { padding: 8px 12px; font-size: 12px; }
+    }
+    @media (max-width: 480px) {
+      .form-submit { font-size: 12px; padding: 16px; }
     }
   </style>
 </head>
