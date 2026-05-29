@@ -25,26 +25,20 @@
     }
     .blog-hero-sub {
       font-size: clamp(15px, 1.8vw, 18px);
-      color: var(--muted); line-height: 1.7;
-      max-width: 520px;
+      color: var(--muted); line-height: 1.7; max-width: 520px;
     }
 
     /* ── BLOG GRID ── */
     .blog-grid-sec { background: var(--off); padding: 80px 0 100px; }
-    .blog-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .blog-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--white); border: 1px solid var(--border);
       display: flex; flex-direction: column;
       transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
       position: relative;
     }
     .blog-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
       height: 3px; background: var(--purple);
       transform: scaleX(0); transform-origin: left;
       transition: transform 0.3s ease;
@@ -56,14 +50,10 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.08);
     }
     .blog-card-img {
-      width: 100%; aspect-ratio: 16/9;
-      background: var(--off);
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
+      width: 100%; aspect-ratio: 16/9; background: var(--off);
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
     }
-    .blog-card-img i {
-      font-size: 40px; color: var(--purple); opacity: 0.25;
-    }
+    .blog-card-img i { font-size: 40px; color: var(--purple); opacity: 0.25; }
     .blog-card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
     .blog-cat {
       font-size: 10px; font-weight: 700;
@@ -81,20 +71,14 @@
       line-height: 1.7; flex: 1; margin-bottom: 20px;
     }
     .blog-footer {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 16px; border-top: 1px solid var(--border);
     }
-    .blog-date {
-      font-size: 12px; color: var(--muted2);
-      letter-spacing: 0.02em;
-    }
+    .blog-date { font-size: 12px; color: var(--muted2); letter-spacing: 0.02em; }
     .blog-read {
       font-size: 12px; font-weight: 600;
       color: var(--purple); letter-spacing: 0.04em;
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: gap 0.2s;
+      display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s;
     }
     .blog-read:hover { gap: 10px; }
 
@@ -102,21 +86,17 @@
     .blog-cta { background: var(--purple); padding: 64px 0; }
     .blog-cta-inner {
       display: flex; align-items: center;
-      justify-content: space-between; gap: 40px;
-      flex-wrap: wrap;
+      justify-content: space-between; gap: 40px; flex-wrap: wrap;
     }
     .blog-cta h2 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(22px, 2.8vw, 34px);
-      font-weight: 600; color: #fff;
-      letter-spacing: -0.02em;
+      font-weight: 600; color: #fff; letter-spacing: -0.02em;
     }
     .blog-cta p { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 8px; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .blog-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    @media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) {
       .blog-grid { grid-template-columns: 1fr; }
       .blog-cta-inner { flex-direction: column; align-items: flex-start; }
@@ -143,14 +123,12 @@
   <div class="drawer-cta"><a href="contact.html">Get in Touch</a></div>
 </div>
 
-<!-- NAV (scrolled — light hero) -->
+<!-- NAV (light hero — starts scrolled) -->
 <nav class="site-nav scrolled" id="siteNav">
   <div class="container nav-inner">
     <a href="index.html" class="nav-logo">
       <img src="logo1.png" alt="Veyom" class="nav-logo-img">
-      <div>
-        <span class="nav-logo-name">Veyom</span>
-      </div>
+      <div><span class="nav-logo-name">Veyom</span></div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -182,9 +160,7 @@
     <div class="blog-grid">
 
       <article class="blog-card">
-        <div class="blog-card-img">
-          <i class="fas fa-robot"></i>
-        </div>
+        <div class="blog-card-img"><i class="fas fa-robot"></i></div>
         <div class="blog-card-body">
           <div class="blog-cat">AI &amp; Automation</div>
           <h2 class="blog-title">How AI Automation Is Changing the Way Small Businesses Operate</h2>
@@ -197,9 +173,7 @@
       </article>
 
       <article class="blog-card">
-        <div class="blog-card-img">
-          <i class="fas fa-palette"></i>
-        </div>
+        <div class="blog-card-img"><i class="fas fa-palette"></i></div>
         <div class="blog-card-body">
           <div class="blog-cat">Web Design</div>
           <h2 class="blog-title">Website Design Trends That Are Actually Worth Following in 2026</h2>
@@ -212,9 +186,7 @@
       </article>
 
       <article class="blog-card">
-        <div class="blog-card-img">
-          <i class="fas fa-chart-line"></i>
-        </div>
+        <div class="blog-card-img"><i class="fas fa-chart-line"></i></div>
         <div class="blog-card-body">
           <div class="blog-cat">Data &amp; Analytics</div>
           <h2 class="blog-title">Why Most Businesses Are Sitting on a Gold Mine of Unused Data</h2>
@@ -256,13 +228,8 @@
     <div class="footer-right">
       <div class="footer-socials">
         <a href="https://linkedin.com/company/veyom" class="footer-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-<<<<<<< HEAD
         <a href="https://wa.me/919342732906" class="footer-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+919342732906" class="footer-icon" aria-label="Phone"><i class="fas fa-phone"></i></a>
-=======
-        <a href="https://wa.me/93427329906" class="footer-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:9342732906" class="footer-icon" aria-label="Phone"><i class="fas fa-phone"></i></a>
->>>>>>> 57be24aab29a9a8c9b028bcf28dbf34946d19320
         <a href="https://instagram.com/veyom" class="footer-icon" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
         <a href="mailto:veyomdigitalsolutions@gmail.com" class="footer-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
@@ -270,12 +237,9 @@
   </div>
 </footer>
 
-<<<<<<< HEAD
 <!-- FLOAT CALL -->
 <a href="tel:+919342732906" class="float-call" aria-label="Call"><i class="fas fa-phone"></i></a>
 
-=======
->>>>>>> 57be24aab29a9a8c9b028bcf28dbf34946d19320
 <script>
   const nav = document.getElementById('siteNav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });

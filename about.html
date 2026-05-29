@@ -9,89 +9,56 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ── PAGE HERO (THEME BLACK WITH ADJUSTED BACKGROUND POSITION) ── */
     .page-hero {
       position: relative;
-      background: #0b0b0f; /* Pure deep tech black base */
+      background: #0b0b0f;
       padding-top: calc(var(--nav-h) + 120px);
       padding-bottom: 140px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       overflow: hidden;
     }
     .page-hero-bg {
       position: absolute;
-<<<<<<< HEAD
-      top: 0;
-=======
-      /* Shifted down and clipped slightly to protect typography readability */
-      top: 15%;
->>>>>>> 57be24aab29a9a8c9b028bcf28dbf34946d19320
-      bottom: 0;
-      left: 0;
-      right: 0;
+      top: 0; bottom: 0; left: 0; right: 0;
       z-index: 0;
     }
-    .hero-slides {
-      position: absolute;
-      inset: 0;
-    }
+    .hero-slides { position: absolute; inset: 0; }
     .hero-slide {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center center;
-      opacity: 0;
-      transform: scale(1.03);
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center center;
+      opacity: 0; transform: scale(1.03);
       transition: opacity 1.5s ease-in-out, transform 4.5s ease-out;
     }
-    .hero-slide.active {
-      opacity: 0.22; /* Subdued composition to blend behind text */
-      transform: scale(1);
-    }
-    /* Linear atmospheric gradient block */
+    .hero-slide.active { opacity: 0.22; transform: scale(1); }
     .page-hero::after {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: linear-gradient(180deg, #0b0b0f 0%, rgba(11,11,15,0.4) 40%, #0b0b0f 100%);
       z-index: 1;
     }
-    .page-hero-content {
-      position: relative;
-      z-index: 10;
-    }
+    .page-hero-content { position: relative; z-index: 10; }
     .page-hero .eyebrow {
-      color: var(--purple);
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 0.1em;
-      font-weight: 600;
-      margin-bottom: 12px;
-      display: inline-block;
+      color: var(--purple); text-transform: uppercase;
+      font-size: 13px; letter-spacing: 0.1em; font-weight: 600;
+      margin-bottom: 12px; display: inline-block;
     }
     .page-hero h1 {
       font-family: 'Inter', sans-serif;
       font-size: clamp(38px, 5.5vw, 72px);
       font-weight: 300; line-height: 1.1;
-      color: #ffffff; margin-bottom: 24px;
+      color: #fff; margin-bottom: 24px;
       letter-spacing: -0.02em; max-width: 750px;
     }
     .page-hero-sub {
       font-size: clamp(16px, 1.8vw, 19px);
-      color: rgba(255, 255, 255, 0.65); line-height: 1.7;
+      color: rgba(255,255,255,0.65); line-height: 1.7;
       max-width: 580px; margin-bottom: 32px;
     }
-    .hero-underline {
-      width: 60px; height: 3px;
-      background: var(--purple);
-    }
+    .hero-underline { width: 60px; height: 3px; background: var(--purple); }
 
     /* ── STORY ── */
     .story-sec { background: var(--off); padding: 100px 0; }
-    .story-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: start;
-    }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .story-left { position: relative; }
     .story-bg-num {
       font-family: 'Orbitron', sans-serif;
@@ -107,62 +74,32 @@
       font-size: clamp(22px, 2.8vw, 34px);
       font-weight: 600; color: var(--ink);
       line-height: 1.3; letter-spacing: -0.02em;
-      font-style: italic;
-      padding-top: 60px;
+      font-style: italic; padding-top: 60px;
     }
-    .story-right p {
-      font-size: 16px; color: var(--muted);
-      line-height: 1.8; margin-bottom: 24px;
-    }
+    .story-right p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
     .story-right p:last-child { margin-bottom: 0; }
 
-    /* ── CLEAN MOVING MARQUEE (NO BACKGROUND) ── */
+    /* ── MARQUEE ── */
     .services-marquee {
-      position: relative;
-      background: transparent; /* Completely stripped backdrop styles */
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 24px 0; /* Tight, compact vertical sizing */
-      display: flex;
-      align-items: center;
+      position: relative; background: transparent;
+      overflow: hidden; white-space: nowrap;
+      padding: 24px 0; display: flex; align-items: center;
     }
-
     .marquee-track {
       display: inline-flex;
       animation: loopMarquee 28s linear infinite;
-      gap: 80px;
-      padding-right: 80px;
+      gap: 80px; padding-right: 80px;
     }
-    
     .marquee-item {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(18px, 2.2vw, 26px);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      color: rgba(11, 11, 15, 0.4); /* Adapts to light layout backgrounds naturally */
-      transition: all 0.3s ease;
-      cursor: default;
+      font-size: clamp(18px, 2.2vw, 26px); font-weight: 500;
+      letter-spacing: -0.01em; display: inline-flex;
+      align-items: center; gap: 16px;
+      color: rgba(11,11,15,0.4); transition: all 0.3s ease; cursor: default;
     }
-    
-    /* Elegant hover pop state directly over the blank canvas layout */
-    .marquee-item:hover {
-      color: #0b0b0f;
-      transform: translateY(-1px);
-    }
-    
-    .marquee-item i {
-      color: var(--purple);
-      font-size: clamp(14px, 1.8vw, 20px);
-      transition: transform 0.3s ease;
-    }
-    
-    .marquee-item:hover i {
-      transform: scale(1.1) rotate(5deg);
-    }
-
+    .marquee-item:hover { color: #0b0b0f; transform: translateY(-1px); }
+    .marquee-item i { color: var(--purple); font-size: clamp(14px, 1.8vw, 20px); transition: transform 0.3s ease; }
+    .marquee-item:hover i { transform: scale(1.1) rotate(5deg); }
     @keyframes loopMarquee {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
@@ -174,36 +111,20 @@
     .caps-header h2 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 600; color: var(--ink);
-      letter-spacing: -0.02em;
+      font-weight: 600; color: var(--ink); letter-spacing: -0.02em;
     }
     .caps-list { border-top: 1px solid var(--border); }
     .cap-row {
-      display: grid;
-      grid-template-columns: 60px 1fr 2fr 40px;
+      display: grid; grid-template-columns: 60px 1fr 2fr 40px;
       gap: 32px; align-items: center;
-      padding: 28px 0;
+      padding: 28px 0 28px 16px;
       border-bottom: 1px solid var(--border);
       border-left: 3px solid transparent;
-      padding-left: 16px;
-      transition: all 0.25s ease;
-      cursor: default;
+      transition: all 0.25s ease; cursor: default;
     }
-    .cap-row:hover {
-      border-left-color: var(--purple);
-      background: var(--off);
-      padding-left: 24px;
-    }
-    .cap-num {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 12px; font-weight: 600;
-      color: var(--muted2); letter-spacing: 0.08em;
-    }
-    .cap-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px; font-weight: 600;
-      color: var(--ink);
-    }
+    .cap-row:hover { border-left-color: var(--purple); background: var(--off); padding-left: 24px; }
+    .cap-num { font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 600; color: var(--muted2); letter-spacing: 0.08em; }
+    .cap-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--ink); }
     .cap-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
     .cap-arrow { color: var(--purple); font-size: 16px; text-align: right; }
 
@@ -213,44 +134,27 @@
     .values-header h2 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 600; color: #fff;
-      letter-spacing: -0.02em;
+      font-weight: 600; color: #fff; letter-spacing: -0.02em;
     }
     .values-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.06);
     }
-    .val-card {
-      background: var(--dark2);
-      padding: 40px 32px;
-      border-top: 3px solid var(--purple);
-    }
-    .val-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 20px; font-weight: 600;
-      color: #fff; margin-bottom: 14px;
-    }
+    .val-card { background: var(--dark2); padding: 40px 32px; border-top: 3px solid var(--purple); }
+    .val-title { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 14px; }
     .val-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
-    /* ── QUOTE BANNER ── */
-    .quote-banner {
-      background: var(--purple);
-      padding: 80px 0;
-    }
+    /* ── QUOTE ── */
+    .quote-banner { background: var(--purple); padding: 80px 0; }
     .quote-inner { max-width: 800px; }
     .quote-text {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(22px, 3vw, 36px);
       font-weight: 500; color: #fff;
-      line-height: 1.4; font-style: italic;
-      margin-bottom: 24px;
+      line-height: 1.4; font-style: italic; margin-bottom: 24px;
     }
-    .quote-attr {
-      font-size: 13px; font-weight: 600;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
+    .quote-attr { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
@@ -259,9 +163,9 @@
       .cap-row { grid-template-columns: 50px 1fr 40px; }
       .cap-desc { display: none; }
       .marquee-track { gap: 40px; padding-right: 40px; }
-      .marquee-item { font-size: clamp(18px, 2.5vw, 24px); }
     }
     @media (max-width: 768px) {
+      .page-hero { padding-top: calc(var(--nav-h) + 60px); padding-bottom: 80px; }
       .cap-row { grid-template-columns: 40px 1fr 32px; gap: 16px; }
       .services-marquee { padding: 18px 0; }
       .marquee-track { gap: 24px; padding-right: 24px; }
@@ -289,17 +193,11 @@
   <div class="drawer-cta"><a href="contact.html">Get in Touch</a></div>
 </div>
 
-<<<<<<< HEAD
 <nav class="site-nav" id="siteNav">
-=======
-<nav class="site-nav scrolled" id="siteNav">
->>>>>>> 57be24aab29a9a8c9b028bcf28dbf34946d19320
   <div class="container nav-inner">
     <a href="index.html" class="nav-logo">
       <img src="logo1.png" alt="Veyom" class="nav-logo-img">
-      <div>
-        <span class="nav-logo-name">Veyom</span>
-      </div>
+      <div><span class="nav-logo-name">Veyom</span></div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -319,11 +217,11 @@
 <section class="page-hero">
   <div class="page-hero-bg">
     <div class="hero-slides" id="aboutHeroSlides">
-      <div class="hero-slide active" style="background-image: url('robot%20ai.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('4K%20Earth%20Wallpapers%20on%20WallpaperDog.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('robot%20ai.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('4K%20Earth%20Wallpapers%20on%20WallpaperDog.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('robot%20ai.jpg');"></div>
+      <div class="hero-slide active" style="background-image:url('robot%20ai.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('4K%20Earth%20Wallpapers%20on%20WallpaperDog.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('robot%20ai.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('4K%20Earth%20Wallpapers%20on%20WallpaperDog.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('robot%20ai.jpg');"></div>
     </div>
   </div>
   <div class="container page-hero-content">
@@ -350,7 +248,6 @@
   </div>
 </section>
 
-<!-- SECTORS WE SERVE MOVING RIBBON (CLEAN BACKDROPLESS EDITION) -->
 <div class="services-marquee">
   <div class="marquee-track">
     <div class="marquee-item"><i class="fas fa-building"></i> Real Estate</div>
@@ -358,8 +255,6 @@
     <div class="marquee-item"><i class="fas fa-truck"></i> Logistics</div>
     <div class="marquee-item"><i class="fas fa-concierge-bell"></i> Hospitality</div>
     <div class="marquee-item"><i class="fas fa-graduation-cap"></i> Education</div>
-    
-    <!-- Duplicated track items to handle continuous infinite loop mechanics -->
     <div class="marquee-item"><i class="fas fa-building"></i> Real Estate</div>
     <div class="marquee-item"><i class="fas fa-heart-pulse"></i> Healthcare</div>
     <div class="marquee-item"><i class="fas fa-truck"></i> Logistics</div>
@@ -456,12 +351,9 @@
   </div>
 </footer>
 
-<<<<<<< HEAD
 <!-- FLOAT CALL -->
 <a href="tel:+919342732906" class="float-call" aria-label="Call"><i class="fas fa-phone"></i></a>
 
-=======
->>>>>>> 57be24aab29a9a8c9b028bcf28dbf34946d19320
 <script>
   const nav = document.getElementById('siteNav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
@@ -472,8 +364,6 @@
   document.getElementById('drawerClose').addEventListener('click', () => tog(false));
   ov.addEventListener('click', () => tog(false));
   document.querySelectorAll('.drawer-links a').forEach(a => a.addEventListener('click', () => tog(false)));
-  
-  // Slide Carousel Motion Engine 
   const slides = document.querySelectorAll('#aboutHeroSlides .hero-slide');
   let currentSlide = 0;
   setInterval(() => {

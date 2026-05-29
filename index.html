@@ -11,9 +11,9 @@
   <style>
     /* ── HERO ── */
     .hero {
-      position: relative; min-height: 100vh;
+      position: relative; min-height: 100vh; min-height: 100svh;
       background: #0a0a0a;
-      display: flex; align-items: center;
+      display: flex; align-items: center; flex-direction: column;
       overflow: hidden;
     }
     .hero-grid {
@@ -37,16 +37,7 @@
     .hero-content {
       position: relative; z-index: 10;
       padding: calc(var(--nav-h) + 80px) 0 80px;
-      max-width: 820px;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 8px 16px; margin-bottom: 32px;
-      font-size: 12px; font-weight: 500;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.04em;
+      max-width: 820px; width: 100%;
     }
     .hero h1 {
       font-family: 'Inter', sans-serif;
@@ -236,13 +227,10 @@
       .stat-item:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
       .services-grid { grid-template-columns: 1fr; }
       .about-features { grid-template-columns: 1fr; }
-<<<<<<< HEAD
       .hero { flex-direction: column; }
+      .hero-content { padding: calc(var(--nav-h) + 48px) 0 40px; }
       .hero-tags { position: static; padding: 16px 0; background: rgba(0,0,0,0.5); margin-top: auto; }
       .hero-sep { position: static; }
-=======
-      .hero-tags { position: static; padding: 16px 0; background: rgba(0,0,0,0.4); }
->>>>>>> 57be24aab29a9a8c9b028bcf28dbf34946d19320
       .hero-tags-inner { gap: 0; }
       .hero-tag { padding: 0 10px; font-size: 10px; }
       .cta-right { flex-direction: column; }
@@ -305,11 +293,9 @@
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
-      
       <h1>Transforming Business Through <strong>Technology.</strong></h1>
-      <p class="hero-sub">We design and build digital systems websites, web applications, AI automation, and IoT platforms that help businesses operate smarter and grow faster.</p>
+      <p class="hero-sub">We design and build digital systems — websites, web applications, AI automation, and IoT platforms that help businesses operate smarter and grow faster.</p>
       <div class="hero-btns">
-       
         <a href="services.html" class="btn btn-ghost">Explore Services</a>
       </div>
     </div>
@@ -329,8 +315,6 @@
     </div>
   </div>
 </section>
-
-
 
 <!-- ABOUT INTRO -->
 <section class="about-intro">
@@ -435,7 +419,6 @@
         <p>Whether you have a clear brief or just an idea, we'll help you shape it into a product that delivers.</p>
       </div>
       <div class="cta-right">
-      
         <a href="contact.html" class="btn btn-ghost">Start a Project</a>
       </div>
     </div>
@@ -468,10 +451,8 @@
 <a href="tel:+919342732906" class="float-call" aria-label="Call"><i class="fas fa-phone"></i></a>
 
 <script>
-  // Nav scroll
   const nav = document.getElementById('siteNav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
-  // Drawer
   const ov = document.getElementById('drawerOverlay');
   const dr = document.getElementById('drawer');
   const tog = s => { dr.classList.toggle('open', s); ov.classList.toggle('open', s); document.body.style.overflow = s ? 'hidden' : ''; };
@@ -479,7 +460,6 @@
   document.getElementById('drawerClose').addEventListener('click', () => tog(false));
   ov.addEventListener('click', () => tog(false));
   document.querySelectorAll('.drawer-links a').forEach(a => a.addEventListener('click', () => tog(false)));
-  // Hero slideshow
   const slides = document.querySelectorAll('.hero-slide');
   let cur = 0;
   setInterval(() => {
